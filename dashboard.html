@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>పొదుపు & వడ్డీ డ్యాష్‌బోర్డ్</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans Telugu', sans-serif;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header -->
+    <header class="w-full max-w-4xl mx-auto px-6 pt-12 pb-6 text-center">
+        <h1 class="text-3xl md:text-4xl font-black text-gray-900 tracking-tight">
+            మీ కుటుంబ పొదుపు లెక్కింపు కేంద్రం
+        </h1>
+        <p class="text-gray-400 text-sm mt-2">
+            తల్లిదండ్రుల కోసం సులభంగా, పారదర్శకంగా వడ్డీలను లెక్కించే ఆధునిక సాధనాలు
+        </p>
+    </header>
+
+    <!-- Dashboard Cards Grid -->
+    <main class="w-full max-w-3xl mx-auto px-6 py-8 flex flex-col md:flex-row gap-6 justify-center items-stretch">
+        
+        <!-- Card 1: Local Interest Calculator -->
+        <a href="localintrest.html" class="flex-1 bg-white p-6 rounded-3xl border border-gray-100 shadow-xs hover:shadow-md hover:border-emerald-200 transition-all duration-300 flex flex-col justify-between group">
+            <div class="space-y-4">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                    🏡
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-gray-900 group-hover:text-emerald-700 transition-colors">స్థానిక వడ్డీ క్యాలిక్యులేటర్</h2>
+                    <p class="text-gray-400 text-xs mt-1.5 leading-relaxed">
+                        మన ఊర్లలో వాడుకునే సంప్రదాయ "నూటికి రూపాయిల" నెలవారీ వడ్డీ లెక్కల కోసం దీన్ని ఉపయోగించండి.
+                    </p>
+                </div>
+            </div>
+            <div class="pt-6 flex items-center text-xs font-semibold text-emerald-600 gap-1">
+                ఓపెన్ చేయండి <span>→</span>
+            </div>
+        </a>
+
+        <!-- Card 2: Bank Gold Loan Calculator -->
+        <a href="goldloan.html" class="flex-1 bg-white p-6 rounded-3xl border border-gray-100 shadow-xs hover:shadow-md hover:border-amber-200 transition-all duration-300 flex flex-col justify-between group">
+            <div class="space-y-4">
+                <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl group-hover:bg-amber-600 group-hover:text-white transition-all duration-300">
+                    👑
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-gray-900 group-hover:text-amber-700 transition-colors">బ్యాంక్ గోల్డ్ లోన్ క్యాలిక్యులేటర్</h2>
+                    <p class="text-gray-400 text-xs mt-1.5 leading-relaxed">
+                        బ్యాంకు నిబంధనల ప్రకారం లెక్కిస్తూ.. చివర్లో ఒకేసారి అసలు, వడ్డీ కట్టే (Bullet Repayment) విధానం కోసం.
+                    </p>
+                </div>
+            </div>
+            <div class="pt-6 flex items-center text-xs font-semibold text-amber-600 gap-1">
+                ఓపెన్ చేయండి <span>→</span>
+            </div>
+        </a>
+
+    </main>
+
+    <!-- Quick Footer Check -->
+    <footer class="w-full text-center py-8 text-xs text-gray-400">
+        బంగారు భవిష్యత్తు కోసం పక్కా ప్రణాళిక.
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>గోల్డ్ లోన్ బుల్లెట్ క్యాలిక్యులేటర్</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans Telugu', sans-serif;
+            background-color: #fcfcfc;
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased min-h-screen flex items-center justify-center p-4">
+
+    <div class="w-full max-w-md bg-white p-6 md:p-8 rounded-3xl shadow-xs border border-gray-100 space-y-6">
+        
+        <!-- Header -->
+        <div class="text-center">
+            <h1 class="text-2xl font-bold text-amber-700">గోల్డ్ లోన్ క్యాలిక్యులేటర్</h1>
+            <p class="text-gray-400 text-xs mt-1">బుల్లెట్ రీపేమెంట్ (చివర్లో ఒకేసారి కట్టే విధానం)</p>
+        </div>
+
+        <!-- Inputs -->
+        <div class="space-y-4">
+            <div>
+                <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">లోన్ తీసుకునే మొత్తం (₹)</label>
+                <input type="number" id="loanAmount" value="200000" oninput="calculateBulletLoan()" class="w-full px-4 py-2.5 bg-gray-50 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all font-semibold text-base">
+            </div>
+
+            <div>
+                <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">బ్యాంక్ వడ్డీ రేటు (% సంవత్సరానికి)</label>
+                <div class="relative">
+                    <input type="number" id="bankRate" value="9.5" step="0.05" oninput="calculateBulletLoan()" class="w-full px-4 py-2.5 bg-gray-50 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all font-semibold text-base">
+                    <span class="absolute inset-y-0 right-4 flex items-center text-gray-400 text-sm font-medium">%</span>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">సమయం (మొత్తం నెలలు)</label>
+                <input type="number" id="loanMonths" value="12" min="1" max="36" oninput="calculateBulletLoan()" class="w-full px-4 py-2.5 bg-gray-50 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all font-semibold text-base">
+            </div>
+        </div>
+
+        <hr class="border-gray-100">
+
+        <!-- Results Display -->
+        <div class="space-y-3">
+            <div class="flex justify-between items-center text-sm">
+                <span class="text-gray-500">మొత్తం అయ్యే వడ్డీ:</span>
+                <span class="font-bold text-gray-900">₹ <span id="goldInterest">0</span></span>
+            </div>
+            
+            <div class="flex justify-between items-center bg-amber-50/60 p-4 rounded-xl border border-amber-100/50">
+                <span class="text-sm font-semibold text-amber-900">చివర్లో కట్టాల్సిన మొత్తం (అసలు + వడ్డీ):</span>
+                <span class="text-xl font-black text-amber-800">₹ <span id="goldTotal">0</span></span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function calculateBulletLoan() {
+            const p = parseFloat(document.getElementById('loanAmount').value) || 0;
+            const annualRate = parseFloat(document.getElementById('bankRate').value) || 0;
+            const m = parseInt(document.getElementById('loanMonths').value) || 0;
+
+            let totalInterest = 0;
+            let totalPayment = 0;
+
+            if (p > 0 && annualRate > 0 && m > 0) {
+                // Bank Simple Interest Formula for Bullet Repayment: (P * R * T_in_years)
+                totalInterest = (p * (annualRate / 100) * (m / 12));
+                totalPayment = p + totalInterest;
+            } else {
+                totalPayment = p;
+            }
+
+            // Display outputs formatted beautifully
+            document.getElementById('goldInterest').innerText = Math.round(totalInterest).toLocaleString('en-IN');
+            document.getElementById('goldTotal').innerText = Math.round(totalPayment).toLocaleString('en-IN');
+        }
+
+        // Initialize calculation on page load
+        window.onload = calculateBulletLoan;
+    </script>
+</body>
+</html>
